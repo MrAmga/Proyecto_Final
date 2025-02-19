@@ -1,0 +1,34 @@
+{% extends 'todo/layout.html' %}
+
+{% block content %}
+        <h1 class="display-1 text-center mb-4">Lista de actividades</h1>
+
+        
+        
+        <ul>
+       
+         <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Tarea</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for tarea in tareas %}
+                  <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ tarea }}</td>
+                    <td>
+                      <a href="{% url 'eliminar' tarea.id %}" class="btn btn-danger">Eliminar</a>
+                      <a href="{% url 'editar' tarea.id %}" class="btn btn-primary">Editar</a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        
+
+        </ul>
+{% endblock %}
